@@ -1,42 +1,46 @@
-// var myArray = [15, null, false, "4", undefined, true, 99, 6];
+
   var min = function(array) {
-    var arrayLen = array.length;
-    var minEl = array[0];
-    for (var i = 0; i < arrayLen; i++) {
-      if (minEl > array[i]) {
-        (minEl = array[i]);
-      }
+    if (array === undefined) { return; }
+    var numArray = array.filter(function(element) {
+    var num = typeof element;
+    return num === "number";
+    });
+    var arrayLen = numArray.length;
+    var minEl = numArray[0];
+    for (var i = 0; i < arrayLen; i++) {  
+      if (minEl > numArray[i]) { minEl = numArray[i] }
     }
     return minEl;
-  }
-  // console.log(min(myArray));    
+  }   
 
 
 
  var max = function(array) {
-    var arrayLen = array.length;
-    var maxEl = array[0];
+    if (array === undefined) { return; }
+    var numArray = array.filter(function(element) {
+    var num = typeof element;
+    return num === "number";
+    });
+    var arrayLen = numArray.length;
+    var maxEl = numArray[0];
     for (var i = 0; i < arrayLen; i++) {
-      if (maxEl < array[i]) {
-        (maxEl = array[i]);
-      }
+      if (maxEl < numArray[i]) { maxEl = numArray[i]; }
     }
     return maxEl;
   }
- // console.log(max(myArray)); 
+ 
 
 
  var sum = function() {
+    if (arguments.length === 0) {return 0; }
     var arrayLen = arguments.length;
     var sumEl = arguments[0];
     for (var i = 1; i < arrayLen; i++) {
       var num = typeof(arguments[i]);
-      if(num != "number"){
-        arguments[i] = 0;
-      }
-        sumEl += arguments[i]; 
+      if(num != "number"){arguments[i] = 0;}
+      sumEl += arguments[i]; 
     }
     return sumEl;
   }
 
-// console.log(sum(15, null, false, "4", undefined, true, 99, 6)); 
+ 
